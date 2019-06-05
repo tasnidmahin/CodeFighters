@@ -28,8 +28,17 @@
 		<fieldset>
 		<legend>  Register </legend>
 		
-		
-			
+			<br><br>
+			First Name:<br>
+			<input type="text"	name="firstname"><br><br>		<!-- Text -->
+			Last Name:<br>
+			<input type="text"	name="lastname"><br> <br>
+			Username:<span style="color:red;"> * </span><br>
+			<input type="text"	name="username"		required><br><br>
+			Password:<span style="color:red;"> * </span><br>
+			<input type="password"	name="password"	required><br><br>
+			<br>
+			<input type="submit"	value="Register"><br><br>		<!-- Submit -->
 		
 		</fieldset>
 	
