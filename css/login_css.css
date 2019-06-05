@@ -1,0 +1,47 @@
+body{
+	background-color:rgb(15,15,15);
+}
+
+
+h1{
+	background-color:rgb(0,0,0);
+}
+
+
+div{
+	text-align:center;
+}
+
+
+form{
+	text-align:center;color:white;
+}
+
+
+legend{
+	font-size:30px;
+}
+
+
+		#register_link:link {
+  		color: rgb(0,100,0); 
+  		background-color: transparent; 
+  		text-decoration: none;}
+
+		#register_link:visited {
+  		color: rgb(0,255,0);
+  		background-color: transparent;
+  		text-decoration: none;}
+
+		#register_link:hover {
+  		color: red;
+  		background-color: transparent;
+  		text-decoration: underline;}
+
+		
+		#register_link:active {
+  		color: yellow;
+  		background-color: transparent;
+  		text-decoration: underline;}
+		
+		
