@@ -2,10 +2,10 @@
 <html lang="en-US">
 
 <head>
-	<title> Codefighters </title> 		<!-- Eta TAB e show kore-->
+	<title> Codefighters </title> 		<!-- It shows in TAB-->
 	
 	
-	<meta charset="utf-8">			<!-- English sarao onno language support koranor jonno -->
+	<meta charset="utf-8">			<!-- To support other languages besides English  -->
 	<meta name="description"   	content="Programming Problem solving platform">
 	<meta name="keywords"		content="Codefighters, contest , problem, programming">
 	<meta name="author"			content="Tasnid Mahin">
@@ -25,7 +25,7 @@
 	
 	<div>
 	
-		<form>
+		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		
 			<fieldset>
 			<legend> Login </legend>				<!-- Legend -->
@@ -49,6 +49,32 @@
 	
 	</div>
 
+
+
+
+	<?php 
+	
+		$username = $password = "";
+		
+		if ($_SERVER["REQUEST_METHOD"] == "POST") 
+		{
+			if (!empty($_POST["username"]))
+			{
+				$username = $_POST["username"];
+			}
+			if (!empty($_POST["password"]))
+			{
+				$password = $_POST["password"];
+			}
+		}
+		
+		
+		
+		
+		
+		
+	?>	
+}
 
 </body>
 
