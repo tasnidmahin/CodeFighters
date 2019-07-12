@@ -20,7 +20,7 @@
 
 <body>
 
-	<h1> <img src="gifs/logo.gif" alt="codefighters" width="582" height="130"> </h1>
+	<h1> <img src="gifs/logo.gif" alt="codefighters" width="582" height="130"> </h1>		<!-- site logo -->
 	
 	
 	<div>
@@ -54,8 +54,12 @@
 
 	<?php 
 	
+		// connect to database
+		include('db_connection.php');
+	
 		$username = $password = "";
 		
+		// Get and store data from form
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
 			if (!empty($_POST["username"]))
@@ -67,9 +71,6 @@
 				$password = $_POST["password"];
 			}
 		}
-		
-		
-		
 		
 		
 		

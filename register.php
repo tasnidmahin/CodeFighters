@@ -22,6 +22,7 @@
 <body>
 
 	<?php
+	
 		
 		$firstname_error = $lastname_error = $username_error = "";
 		$firstname = $lastname = $username = $password = "";
