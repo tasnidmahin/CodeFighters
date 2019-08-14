@@ -13,6 +13,7 @@
 	<meta name="viewport"		content="width=device-width, initial-scale=1.0">
 	
 	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  <!-- Bootstrap -->
 	<link rel = "stylesheet" href="css/login_css.css">				<!-- External css file -->
 
 </head>
@@ -23,9 +24,18 @@
 
 	<?php
 	
+		function test_input($data) 	// to test Form data
+		{
+			  $data = trim( stripslashes( htmlspecialchars( $data ) ) );
+			  return $data;
+		}
+
+		// connect to database
+		include('db_connection.php');
 		
-		$firstname_error = $lastname_error = $username_error = "";
-		$firstname = $lastname = $username = $password = "";
+		
+		$firstname_error = $lastname_error = $username_error = $email_error = "";
+		$firstname = $lastname = $username = $password = $name = $email = "";
 		
 		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
@@ -33,9 +43,10 @@
 			if(!empty($_POST["firstname"]))
 			{
 				$firstname = test_input($_POST["firstname"]);
+				echo "mahin" . $firstname . "mahin";
 				if(empty($firstname))
 				{
-					$firstname = "Your firstname can't be just space";
+					$firstname_error = "Your firstname can't be just space";
 				}
 				else if (!preg_match("/^[a-zA-Z ]*$/",$firstname))
 				{
@@ -47,7 +58,7 @@
 				$lastname = test_input($_POST["lastname"]);
 				if(empty($lastname))
 				{
-					$lastname = "Your lastname can't be just space";
+					$lastname_error = "Your lastname can't be just space";
 				}
 				else if (!preg_match("/^[a-zA-Z ]*$/",$lastname))
 				{
@@ -66,22 +77,29 @@
 					$username_error = "Only letters,digits and underscore are allowed";
 				}
 			}
-			if (!empty($_POST["password"]))
+			
+			if(!empty($_POST["email"]))
 			{
-				$password = $_POST["password"];
+				$email = test_input($_POST["email"]);
+				// check if e-mail address is well-formed
+				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+				{
+					$email_error = "Invalid email format"; 
+				}
 			}
 			
-		}		
-		
-		
-		function test_input($data) 
-		{
-			  $data = trim($data);
-			  $data = stripslashes($data);
-			  $data = htmlspecialchars($data);
-			  return $data;
-		}
+			if (!empty($_POST["password"]))
+			{
+				$password = password_hash (test_input( $_POST["password"] ), PASSWORD_DEFAULT);
+			}
+			
+		}	
 
+		$name = $firstname . $lastname;
+		
+		
+		// close the mysql connection
+		mysqli_close($conn);
 	
 	?>
 
@@ -104,7 +122,10 @@
 			<?php  if($lastname_error != "")echo "<br> $lastname_error <br>"  ?><br>			
 			Username:<span style="color:red;"> * </span><br>
 			<input type="text"	name="username"		required><br>			
-			<?php  if($username_error != "")echo "<br> $username_error <br>"  ?><br>			
+			<?php  if($username_error != "")echo "<br> $username_error <br>"  ?><br>
+			Email:<span style="color:red;"> * </span><br>
+			<input type="text"	name="email"		required><br>			
+			<?php  if($email_error != "")echo "<br> $email_error <br>"  ?><br>			
 			Password:<span style="color:red;"> * </span><br>
 			<input type="password"	name="password"	required><br><br>
 			<br>
@@ -115,7 +136,12 @@
 	
 	</form>
 	
-	
-	
+	 
+	 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
+
+</html>
