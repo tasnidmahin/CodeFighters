@@ -50,7 +50,7 @@
 		
 		
 		// create sql query
-		$sql = "SELECT username,password  from USERS WHERE username='$username'";
+		$sql = "SELECT Username,Password  from USERS WHERE Username='$username'";
 		
 		// query result from database
 		$result = mysqli_query( $conn, $sql );
@@ -62,8 +62,8 @@
 			// store some basic user data in variables
 			while( $row = mysqli_fetch_assoc($result) ) 
 			{
-				$user     = $row['username'];
-				$hashpass = $row['password'];
+				$user     = $row['Username'];
+				$hashpass = $row['Password'];
 			}
 			
 			// verify hashed password with the typed password
@@ -76,7 +76,7 @@
 				// store data in SESSION variables
 				$_SESSION['loggedInUser'] = $user;
 				
-				header("Location: dashboard.php");
+				header("Location: home.php");
 			
 			}
 			else // hashed password don't match with typed password
@@ -102,7 +102,7 @@
 
 
 
-	<h1> <img src="gifs/logo.gif" alt="codefighters" width="582" height="130"> </h1>		<!-- site logo -->
+	<h1> <img src="gifs/logo2.png" alt="codefighters" width="582" height="130"> </h1>		<!-- site logo -->
 	
 	
 	

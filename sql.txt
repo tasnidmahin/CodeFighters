@@ -1,10 +1,10 @@
 CREATE DATABASE codefightersdb;
-SELECT codefightersdb;
+
 CREATE TABLE USERS
 (
 	UserID int not null AUTO_INCREMENT,
-  	username varchar(255) not null,
-    	password varchar(255) not null,
+  	Username varchar(255) not null,
+    	Password varchar(255) not null,
  	FirstName varchar(255) not null,
   	LastName varchar(255) not null,
   	Email varchar(255) not null,
@@ -17,6 +17,7 @@ CREATE TABLE PROBLEMS
 (
 	ProblemID int not null,
 	ProblemName	varchar(50),
+	Volume int not null,
     	TimeLimit int not null,
     	MemoryLimit int not null,
   	Description varchar(5000),

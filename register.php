@@ -33,7 +33,6 @@
 		// connect to database
 		include('db_connection.php');
 		
-		
 		$firstname_error = $lastname_error = $username_error = $email_error = "";
 		$firstname = $lastname = $username = $password = $name = $email = "";
 		
@@ -93,10 +92,28 @@
 				$password = password_hash (test_input( $_POST["password"] ), PASSWORD_DEFAULT);
 			}
 			
+			$sql = "INSERT INTO USERS (Username, Password, FirstName, LastName, email)
+			VALUES ('$username', '$password','$firstname', '$lastname' ,'$email')";
+			
+			
+			if( mysqli_query( $conn, $sql ) )
+			{
+			   session_start();
+				
+				// store data in SESSION variables
+				$_SESSION['loggedInUser'] = $user;
+				$_SESSION['loggedInEmail'] = $email;
+				
+				header("Location: home.php");
+			}
+			else
+			{
+				echo "Error: ". $sql . "<br>" . mysqli_error($conn);
+			}
+			
 		}	
 
-		$name = $firstname . $lastname;
-		
+
 		
 		// close the mysql connection
 		mysqli_close($conn);
@@ -106,7 +123,7 @@
 
 	
 
-	<h1> <img src="gifs/logo.gif" alt="codefighters" width="582" height="130"> </h1>
+	<h1> <img src="gifs/logo2.png" alt="codefighters" width="582" height="130"> </h1>
 
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	
