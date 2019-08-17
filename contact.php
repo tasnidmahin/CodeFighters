@@ -20,7 +20,6 @@
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  <!-- Bootstrap -->
 	<link rel = "stylesheet" href="css/nav_css.css">				<!-- External css file -->
-	<link rel = "stylesheet" href="css/home_css.css">				
 	
 </head>
 
@@ -46,32 +45,10 @@
 		</li>
 		
 	</ul>
-	
-	
-	<div class="wht">		
-		<p> Welcome to the world of coding !! </p>		
-	</div>
-	
-	<div class="gry">		
-		<p> Practice with quality problems </p>		
-	</div>
-	
-	<div class="wht">		
-		<p> Improve your skill </p>		
-	</div>
-	
-	<div class="gry">		
-		<p> Find problems of your desired category </p>		
-	</div>
-	
-	<div class="wht">		
-		<p> Compete with the world </p>		
-	</div>
-	
-	<div class="gry">		
-		<p> Enjoy.Happy coding !!! </p>		
-	</div>
-	
+
+
+
+
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
