@@ -1,0 +1,16 @@
+.vol_tab
+{
+	margin-top: 150px;
+	text-align: center;
+}
+
+th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table
+{
+  border: 2px solid black;
+  border-collapse: collapse;
+}

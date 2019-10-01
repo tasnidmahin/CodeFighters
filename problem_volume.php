@@ -20,7 +20,7 @@
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">  <!-- Bootstrap -->
 	<link rel = "stylesheet" href="css/nav_css.css">				<!-- External css file -->
-	<link rel = "stylesheet" href="css/home_css.css">				
+	<link rel = "stylesheet" href="css/volume_css.css">			
 	
 </head>
 
@@ -31,8 +31,35 @@
 		include("navbar.php");
 	?>
 
-
-
+	<div class="vol_tab">
+		<table align="center">
+			  <tr>
+				<th>Volume</th>
+				<th>Solved Problems</th> 
+				<th>Total Problems</th>
+			  </tr>
+			  <tr>
+				<td><a href="#.php">100</a></td>
+				<td>0</td>
+				<td>50</td>
+			  </tr>
+			  <tr>
+				<td><a href="#.php">101</a></td>
+				<td>0</td>
+				<td>50</td>
+			  </tr>
+			  <tr>
+				<td><a href="#.php">102</a></td>
+				<td>0</td>
+				<td>50</td>
+			  </tr>
+			  <tr>
+				<td><a href="#.php">103</a></td>
+				<td>0</td>
+				<td>50</td>
+			  </tr>
+		</table>
+	</div>
 
 
 	<script src="js/jquery.min.js"></script>
