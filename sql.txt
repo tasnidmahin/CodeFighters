@@ -16,11 +16,9 @@ ALTER TABLE USERS AUTO_INCREMENT=100;
 CREATE TABLE PROBLEMS 
 (
 	ProblemID int not null,
-	ProblemName	varchar(50),
+	ProblemName varchar(255),
 	Volume int not null,
-    	TimeLimit int not null,
-    	MemoryLimit int not null,
-  	Description varchar(5000),
+  	Description TEXT not null,
   	TestCase varchar(800),
     	TestCaseOutput varchar(800),
     	UNIQUE (ProblemID),
@@ -47,4 +45,13 @@ CREATE TABLE PROBLEM_CATEGORY
     Tag varchar(50),
     FOREIGN KEY (ProblemID) REFERENCES PROBLEMS(ProblemID),
     PRIMARY KEY (Problem_CategoryID)
+);
+
+CREATE TABLE FEEDBACK
+(
+ 	FeedbackID int not null AUTO_INCREMENT,
+	UserID int not null,
+	Description TEXT not null,
+	FOREIGN KEY (UserID) REFERENCES USERS(UserID),
+	PRIMARY KEY (FeedbackID) 
 );
