@@ -31,14 +31,6 @@
 		include("navbar.php");
 	?>
 
-
-	<div style="margin-top: 150px; text-align: center;">
-		<h4> I am Tasnid Mahin <h4> 
-		<p> Student of Dpartment of CSE 3rd Year at Ahsanullah University of Scirnce and Technology </p>
-	
-	</div>
-
-
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

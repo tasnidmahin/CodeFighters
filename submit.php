@@ -30,14 +30,23 @@
 	<?php
 		include("navbar.php");
 	?>
-
-
-	<div style="margin-top: 150px; text-align: center;">
-		<h4> I am Tasnid Mahin <h4> 
-		<p> Student of Dpartment of CSE 3rd Year at Ahsanullah University of Scirnce and Technology </p>
 	
+	<div style="margin-top: 50px; text-align: center;">
+		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		
+			<fieldset>
+			<legend> Submit a  Solution </legend>				<!-- Legend -->
+			
+			<br><br>
+			<textarea	name="code"	style="height: 450px; width: 800px;"	required></textarea><br><br>
+						
+			<input type="submit"	value="Submit">		<!-- Submit -->
+			<br><br>
+			
+			</fieldset>
+						
+		</form>
 	</div>
-
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>

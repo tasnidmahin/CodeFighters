@@ -68,8 +68,12 @@
 	
 	
 	<?php if($volume_no == 100) { 
-	$sql = "SELECT ProblemID,ProblemName,"
+		include('db_connection.php');
+	//$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') from PROBLEMS where Volume = 100";
+	$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 ) from PROBLEMS where Volume = 100";
 	
+	$result = mysqli_query( $conn, $sql );
+		
 	?>
 		<div class="vol_tab">
 			<table align="center">
@@ -79,6 +83,22 @@
 					<th>Total Solve</th>
 				  </tr>
 			</table>
+			
+				<?php
+					while( $row = mysqli_fetch_assoc($result) ) 
+					{
+						$prob     = $row['ProblemID'];
+						$probName= $row['ProblemName'];
+						$solve = $row['solve'];
+					}
+                    ?>
+				<tr>
+					<td><?php echo $prob; ?></td>
+					<td><?php echo $probName; ?></td>
+					<td><?php echo $solve; ?></td>
+				</tr>
+				
+
 		</div>
 	
 	<?php } ?>
