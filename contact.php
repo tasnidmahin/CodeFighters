@@ -46,7 +46,7 @@
                     <form action="" method="post" style="margin-top: 40px;">
                         <div class="form-group form-border">
                             <label class="text-left" for="exampleInputPassword1"> Enter Your ID</label>
-                            <input type="text" name="userName" class="form-control input-blank-border" id="exampleInputPassword1" placeholder="Enter your ID" required>
+                            <input type="text" name="userID" class="form-control input-blank-border" id="exampleInputPassword1" placeholder="Enter your ID" required>
                         </div>
                         <div class="form-group form-border">
                             <label class="text-left" for="exampleInputPassword1">Message</label>

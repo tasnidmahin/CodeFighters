@@ -29,6 +29,7 @@
 
 	<?php
 		include("navbar.php");
+		include('db_connection.php');
 		$volume_no = $_GET['volume'];
 	 ?>
 	
@@ -42,7 +43,6 @@
 				  </tr>
 				  <tr>
 					<td><a href="problem_volume.php?volume=100" >100</a></td>
-					<!-- <a href="page2.php?varname=<?php echo $var_value ?>">Page2</a> -->
 					<td>0</td>
 					<td>50</td>
 				  </tr>
@@ -68,9 +68,8 @@
 	
 	
 	<?php if($volume_no == 100) { 
-		include('db_connection.php');
-	//$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') from PROBLEMS where Volume = 100";
-	$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 ) from PROBLEMS where Volume = 100";
+	$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') from PROBLEMS where Volume = 100";
+	//$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 ) from PROBLEMS where Volume = 100";
 	
 	$result = mysqli_query( $conn, $sql );
 		
@@ -82,7 +81,6 @@
 					<th>Problem Name</th> 
 					<th>Total Solve</th>
 				  </tr>
-			</table>
 			
 				<?php
 					while( $row = mysqli_fetch_assoc($result) ) 
@@ -90,14 +88,17 @@
 						$prob     = $row['ProblemID'];
 						$probName= $row['ProblemName'];
 						$solve = $row['solve'];
-					}
                     ?>
 				<tr>
-					<td><?php echo $prob; ?></td>
-					<td><?php echo $probName; ?></td>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $prob; ?></a></td>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $probName; ?></a></td>
 					<td><?php echo $solve; ?></td>
 				</tr>
+				<?php
+					}
+                    ?>
 				
+			</table>
 
 		</div>
 	

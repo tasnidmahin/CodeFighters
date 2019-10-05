@@ -20,17 +20,31 @@
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">  <!-- Bootstrap -->
 	<link rel = "stylesheet" href="css/nav_css.css">				<!-- External css file -->
-	<link rel = "stylesheet" href="css/home_css.css">				
+	<link rel = "stylesheet" href="css/home_css.css">	
+	<link rel = "stylesheet" href="css/problem_css.css">				
 	
 </head>
 
 
 <body>
+		<?php
+			include("navbar.php");
+			include('db_connection.php');
+			$problem_no =  $_GET['problem'];
+			
+			$sql = "SELECT Description,TestCase,TestCaseOutput from PROBLEMS where ProblemID = $problem_no";
+			$result = mysqli_query( $conn, $sql );
+			while( $row = mysqli_fetch_assoc($result) ) 
+			{
+				echo htmlspecialchars_decode(stripslashes($row['Description']));
+				$_SESSION['test_case'] = $row['TestCase'];
+				$_SESSION['test_case_output'] = $row['TestCaseOutput'];
 
-	<?php
-		include("navbar.php");
-	?>
-
+			}
+		?>
+	
+	
+		
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

@@ -1,9 +1,13 @@
+.wrap
+{
+	margin: 30px;
+}	
+
 .header
 {
 	text-align: center;
 }
-
-a:link, a:visited {
+#sub:link, #sub:visited {
   background-color: rgb(30,30,90);
   color: white;
   padding: 15px 25px;
@@ -12,9 +16,10 @@ a:link, a:visited {
   display: inline-block;
 }
 
-a:hover, a:active {
+#sub:hover, #sub:active {
   background-color: rgb(60,30,50);
 }
+
 
 .link{
 	text-align: center;
