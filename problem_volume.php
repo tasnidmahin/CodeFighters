@@ -88,6 +88,7 @@
 						$prob     = $row['ProblemID'];
 						$probName= $row['ProblemName'];
 						$solve = $row['solve'];
+						echo $solve;
                     ?>
 				<tr>
 					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $prob; ?></a></td>

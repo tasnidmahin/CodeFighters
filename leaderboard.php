@@ -35,6 +35,13 @@
 
 	<?php
 		include("navbar.php");
+		include('db_connection.php');
+
+		$user = $solve = "";
+		
+		$sql = "SELECT USERS.UserID,(SELECT COUNT(DISTINCT ProblemID) as solve from SUBMISSIONS where Verdict = 'Accepted') from USERS inner join  SUBMISSIONS on USERS.UserID = SUBMISSIONS.UserID
+					ORDER BY COUNT(DISTINCT ProblemID) DESC;";
+		$result = mysqli_query( $conn, $sql );
 	?>
 
     <div class="container">
@@ -46,7 +53,23 @@
                     <th>Solved</th>
                 </tr>
             </thead>
+			
             <tbody>
+				<?php
+					while( $row = mysqli_fetch_assoc($result) ) 
+					{
+						$user     = $row['USERS.UserID'];
+						$solve = $row['solve'];
+						echo $user;
+                    ?>
+						<tr>
+							<td><a href="profile.php?user=<?php echo $user; ?>"><?php echo $user; ?></a></td>
+							<td><a href="profile.php?user=<?php echo $user; ?>"><?php echo $solve; ?></a></td>
+						</tr>
+				<?php
+					}
+                    ?>
+				
 
             </tbody>
         </table>
