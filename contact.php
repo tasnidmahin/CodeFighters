@@ -30,6 +30,33 @@
 
 	<?php
 		include("navbar.php");
+		function test_input($data) 	// to test Form data
+		{
+			  $data = trim( stripslashes( htmlspecialchars( $data ) ) );
+			  return $data;
+		}
+
+		// connect to database
+		include('db_connection.php');
+		
+		$name = $msg = "";
+		$error = 0;
+		
+		if ($_SERVER["REQUEST_METHOD"] == "POST") 
+		{
+			$name = test_input($_POST["userName"]);
+			$msg = test_input($_POST["userMessage"]);
+			
+			if(!$error)
+			{
+				$sql = "INSERT INTO FEEDBACK (username, Description)
+				VALUES ('$name', '$msg')";
+				
+				mysqli_query( $conn, $sql ) ;
+			}
+			
+		}
+		
 	?>
 
     <div class="container-fluid ">
@@ -43,14 +70,20 @@
                 <div class="margin-from">
 
                     <h3 class="text-center">Send Us A Message</h3>
-                    <form action="" method="post" style="margin-top: 40px;">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin-top: 40px;">
                         <div class="form-group form-border">
-                            <label class="text-left" for="exampleInputPassword1"> Enter Your ID</label>
-                            <input type="text" name="userID" class="form-control input-blank-border" id="exampleInputPassword1" placeholder="Enter your ID" required>
-                        </div>
+                            <label class="text-left" for="exampleInputPassword1"> Enter Your User Name</label>
+                            <input type="text" name="userName" class="form-control input-blank-border" id="exampleInputPassword1" placeholder="Enter your User Name" required>
+							<br>
+							<?php if ($name != $_SESSION['loggedInUser']) {
+								$error = 1;
+                                echo "Write your user name";
+								
+                            } ?>
+						</div>
                         <div class="form-group form-border">
                             <label class="text-left" for="exampleInputPassword1">Message</label>
-                            <textarea class="form-control input-blank-border" name="userMessage" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                            <textarea class="form-control input-blank-border" name="userMessage" id="exampleFormControlTextarea1" placeholder="Write your Message" rows="3" required></textarea>
                         </div>
                         <div class="form-group d-flex justify-content-center">
                             <button type="submit" class="btn btn-dark w-25 text-center" style="margin-right: 10px;">Submit</button>
@@ -60,7 +93,9 @@
                                 echo $error_message;
                             } ?>
                         </div>
-                    </form>
+                    </form> 
+					
+					
 
                 </div>
 

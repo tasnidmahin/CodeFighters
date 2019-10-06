@@ -50,8 +50,8 @@ CREATE TABLE PROBLEM_CATEGORY
 CREATE TABLE FEEDBACK
 (
  	FeedbackID int not null AUTO_INCREMENT,
-	UserID int not null,
+	Username varchar(255) not null,
 	Description TEXT not null,
-	FOREIGN KEY (UserID) REFERENCES USERS(UserID),
+	FOREIGN KEY (Username) REFERENCES USERS(Username),
 	PRIMARY KEY (FeedbackID) 
 );
