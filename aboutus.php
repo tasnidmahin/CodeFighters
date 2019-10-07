@@ -20,7 +20,7 @@
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">  <!-- Bootstrap -->
 	<link rel = "stylesheet" href="css/nav_css.css">				<!-- External css file -->
-	<link rel = "stylesheet" href="css/home_css.css">				
+	<link rel = "stylesheet" href="css/aboutus_css.css">				
 	
 </head>
 
@@ -32,10 +32,10 @@
 	?>
 
 
-	<div style="margin-top: 150px; text-align: center;">
-		<h4> I am Tasnid Mahin <h4> 
-		<p> Student of Dpartment of CSE 3rd Year at Ahsanullah University of Scirnce and Technology </p>
-	
+	<div class="container-fluid bg-1 text-center">
+	  <h3 class="margin">Who I Am?</h3>
+	  <img src="gifs/me.jpg" class="img-responsive rounded-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+	  <h3>I'm Tasnid Mahin student of AUST CSE. </h3>
 	</div>
 
 

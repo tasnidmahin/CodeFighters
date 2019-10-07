@@ -31,7 +31,34 @@
 	<?php
 		include("navbar.php");
 		include('db_connection.php');
-		$firstName = $lastName = $solve = $rank = $email = "";
+		$firstName = $lastName = $solve = $rank = $email = $id = "";
+		$username = $_SESSION['loggedInUser'];
+		
+		$sql = "SELECT UserID from USERS where Username = '$username'";
+		$result = mysqli_query( $conn, $sql );
+		while( $row = mysqli_fetch_assoc($result) ) 
+		{
+			$id = $row['UserID'];
+		}
+		$sql = "SELECT FirstName,LastName,Email,(SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS where UserID = '$id' and Verdict = 'Accepted') as solve from USERS";
+		$result = mysqli_query( $conn, $sql );
+		
+		while( $row = mysqli_fetch_assoc($result) ) 
+		{
+			$firstName = $row['FirstName'];
+			$lastName = $row['LastName'];
+			$email = $row['Email'];
+			$solve = $row['solve'];
+		}
+		
+		$sql = "(SELECT COUNT(DISTINCT UserID)  as rank from SUBMISSIONS where (SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS where UserID = '$id' and Verdict = 'Accepted')> '$solve')";
+		$result = mysqli_query( $conn, $sql );
+		
+		while( $row = mysqli_fetch_assoc($result) ) 
+		{
+			$rank = $row['rank'];
+		}
+		$rank++;
 	?>
 	
 	<div style="margin: 0 auto;">
@@ -42,8 +69,10 @@
 			</div>
 			<div class="flip-card-back">
 			  <h1><?php echo $_SESSION['loggedInUser']; ?></h1> 
-			  <p>Architect & Engineer</p> 
-			  <p>We love that guy</p>
+			  <p> Name: <?php echo $firstName . "  " . $lastName; ?></p> 
+			  <p>Email: <?php echo $email; ?></p>
+			  <p>Total Solve: <?php echo $solve; ?></p> 
+			  <p>Rank: <?php echo $rank; ?></p>
 			  <button> UPDATE </button>
 			</div>
 		  </div>
