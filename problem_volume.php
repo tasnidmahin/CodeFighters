@@ -68,7 +68,7 @@
 	
 	
 	<?php if($volume_no == 100) { 
-	$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') from PROBLEMS where Volume = 100";
+	$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') as solve from PROBLEMS where Volume = 100";
 	//$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) as solve from SUBMISSIONS where ProblemID>=100 and ProblemID<200 ) from PROBLEMS where Volume = 100";
 	
 	$result = mysqli_query( $conn, $sql );
@@ -86,9 +86,8 @@
 					while( $row = mysqli_fetch_assoc($result) ) 
 					{
 						$prob     = $row['ProblemID'];
-						$probName= $row['ProblemName'];
+						$probName = $row['ProblemName'];
 						$solve = $row['solve'];
-						echo $solve;
                     ?>
 				<tr>
 					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $prob; ?></a></td>

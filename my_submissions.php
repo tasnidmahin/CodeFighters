@@ -19,9 +19,8 @@
 	
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">  <!-- Bootstrap -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel = "stylesheet" href="css/nav_css.css">				<!-- External css file -->
-	<link rel = "stylesheet" href="css/profile_css.css">				
+	<link rel = "stylesheet" href="css/home_css.css">				
 	
 </head>
 
@@ -31,25 +30,8 @@
 	<?php
 		include("navbar.php");
 		include('db_connection.php');
-		$firstName = $lastName = $solve = $rank = $email = "";
 	?>
 	
-	<div style="margin: 0 auto;">
-		<div class="flip-card">
-		  <div class="flip-card-inner">
-			<div class="flip-card-front">
-			  <img src="gifs/no-photo.jpg" alt="No Photo" style="width:300px;height:300px;">
-			</div>
-			<div class="flip-card-back">
-			  <h1><?php echo $_SESSION['loggedInUser']; ?></h1> 
-			  <p>Architect & Engineer</p> 
-			  <p>We love that guy</p>
-			  <button> UPDATE </button>
-			</div>
-		  </div>
-		</div>	
-	</div>	
-		
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

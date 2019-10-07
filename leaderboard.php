@@ -39,8 +39,8 @@
 
 		$user = $solve = "";
 		
-		$sql = "SELECT USERS.UserID,(SELECT COUNT(DISTINCT ProblemID) as solve from SUBMISSIONS where Verdict = 'Accepted') from USERS inner join  SUBMISSIONS on USERS.UserID = SUBMISSIONS.UserID
-					ORDER BY COUNT(DISTINCT ProblemID) DESC;";
+		$sql = "SELECT Username ,(SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS where Verdict = 'Accepted') as solve from USERS inner join  SUBMISSIONS on USERS.UserID = SUBMISSIONS.UserID
+					ORDER BY solve DESC;";
 		$result = mysqli_query( $conn, $sql );
 	?>
 
@@ -58,7 +58,7 @@
 				<?php
 					while( $row = mysqli_fetch_assoc($result) ) 
 					{
-						$user     = $row['USERS.UserID'];
+						$user     = $row['Username'];
 						$solve = $row['solve'];
 						echo $user;
                     ?>
