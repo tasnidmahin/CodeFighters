@@ -30,10 +30,15 @@
 	<?php
 		include("navbar.php");
 		include('db_connection.php');
+		session_start();
 		$volume_no = $_GET['volume'];
 	 ?>
 	
-	<?php if($volume_no == null) { ?>
+	<?php if($volume_no == null) { 
+		
+
+	
+	?>
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>
@@ -41,26 +46,25 @@
 					<th>Solved Problems</th> 
 					<th>Total Problems</th>
 				  </tr>
-				  <tr>
-					<td><a href="problem_volume.php?volume=100" >100</a></td>
-					<td>0</td>
-					<td>50</td>
-				  </tr>
-				  <tr>
-					<td><a href="problem_volume.php?volume=101">101</a></td>
-					<td>0</td>
-					<td>50</td>
-				  </tr>
-				  <tr>
-					<td><a href="problem_volume.php?volume=102">102</a></td>
-					<td>0</td>
-					<td>50</td>
-				  </tr>
-				  <tr>
-					<td><a href="problem_volume.php?volume=103">103</a></td>
-					<td>0</td>
-					<td>50</td>
-				  </tr>
+				  <?php 
+					for ($i = 100; $i <= 103; $i++) {
+						$u = $i+100;
+						$sql = "SELECT (SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS where ProblemID>='$i' and ProblemID<'$u' and Verdict = 'Accepted') as solve ,COUNT(DISTINCT ProblemID) as problem from PROBLEMS  where Volume = '$i'";
+						$result = mysqli_query( $conn, $sql );
+						while( $row = mysqli_fetch_assoc($result) )
+						{
+							$solve = $row['solve'];
+							$problem = $row['problem'];
+						}							
+				  ?>
+					  <tr>
+						<td><a href="problem_volume.php?volume=<?php echo $i; ?>"><?php echo $i; ?></a></td>
+						<td><?php echo $solve; ?></td>
+						<td><?php echo $problem; ?></td>
+					  </tr>
+				<?php
+					}
+                    ?>
 			</table>
 		</div>
 	<?php } ?>

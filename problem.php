@@ -30,6 +30,7 @@
 		<?php
 			include("navbar.php");
 			include('db_connection.php');
+			session_start();
 			$problem_no =  $_GET['problem'];
 			
 			$sql = "SELECT Description,TestCase,TestCaseOutput from PROBLEMS where ProblemID = $problem_no";
@@ -37,6 +38,7 @@
 			while( $row = mysqli_fetch_assoc($result) ) 
 			{
 				echo htmlspecialchars_decode(stripslashes($row['Description']));
+				$_SESSION['problem'] = $problem_no;
 				$_SESSION['test_case'] = $row['TestCase'];
 				$_SESSION['test_case_output'] = $row['TestCaseOutput'];
 

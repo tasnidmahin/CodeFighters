@@ -65,14 +65,19 @@
 		//if($output == $test_case_output)
 		if(strcmp($output, $test_case_output) == 0)
 		{
+			$_SESSION['verdict'] = "Accepted";
 			echo "Accepted"; 
 		}
 		else{
+			$_SESSION['verdict'] = "Wrong Answer";
 			echo "Wrong Answer";
 		}
 	}
     else
+	{
+		$_SESSION['verdict'] = "Compilation Error";
         echo "Compilation Error";
+	}
 
 	exec("del $filename_code");
 	exec("del *.o");

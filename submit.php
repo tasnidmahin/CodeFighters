@@ -28,7 +28,8 @@
 <body>
 
 	<?php
-		include("navbar.php");
+		include("navbar.php");	
+		session_start();
 	?>
            <div class="row" style="margin: 100px;margin-left: 300px ">
                      <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded col-md-8">
@@ -66,49 +67,6 @@
             </div>
             </div>
 			
-
-           
-<script type="text/javascript">
-    
-  $(document).ready(function(){
-
-     $("#st").click(function(){
-  
-           $("#ok").html("Judging...");
-
-     });
-
-  });
-
-</script> 
-            
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#st').focus();
-        $('#st').click(function(event){
-            event.preventDefault();
-            var code = $('#code').val();
-            var language = $('#language').val();
-            $.ajax({
-                method: "POST",
-                url: "compile.php",
-                data: {code: code, language: language},// test_case: test_case},
-                success: function(msg){
-                    
-                   if(msg == 'Accepted')
-                        $('#ok').html(msg + "&#9989;");
-                   else
-                     $('#ok').html(msg + "&#10060;");
-                }
-            });
-            
-            
-        });
-    });
-    
-    
-</script>  
-	
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>

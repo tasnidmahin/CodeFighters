@@ -38,6 +38,7 @@
 		include('db_connection.php');
 
 		$user = $solve = $id = "";
+		$username = $_SESSION['loggedInUser'];
 		
 		$sql = "SELECT UserID from USERS where Username = '$username'";
 		$result = mysqli_query( $conn, $sql );
@@ -45,8 +46,9 @@
 		{
 			$id = $row['UserID'];
 		}
-		$sql = "SELECT Username ,(SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS  where UserID = '$id' and Verdict = 'Accepted') as solve from USERS ORDER BY solve DESC;";
+		$sql = "SELECT Username ,(SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS  where UserID = '$id' and Verdict = 'Accepted') as solve from USERS ORDER BY solve DESC";
 		$result = mysqli_query( $conn, $sql );
+		
 	?>
 
     <div class="container">

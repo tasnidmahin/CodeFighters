@@ -41,13 +41,14 @@
 
 		$sub_id = $id = $prob_id = $lang = $verdict = "";
 		
+		$username = $_SESSION['loggedInUser'];
 		$sql = "SELECT UserID from USERS where Username = '$username'";
 		$result = mysqli_query( $conn, $sql );
 		while( $row = mysqli_fetch_assoc($result) ) 
 		{
 			$id = $row['UserID'];
 		}
-		$sql = "SELECT SubmissionID,ProblemID,ProblemID,Verdict from SUBMISSIONS where UserID = '$id';";
+		$sql = "SELECT SubmissionID,UserID ,ProblemID,Language ,Verdict from SUBMISSIONS where UserID = '$id';";
 		$result = mysqli_query( $conn, $sql );
 	?>
 
@@ -69,6 +70,7 @@
 					while( $row = mysqli_fetch_assoc($result) ) 
 					{
 						$sub_id     = $row['SubmissionID'];
+						$prob_id = $row['UserID '];
 						$prob_id = $row['ProblemID'];
 						$lang = $row['Language'];
 						$verdict = $row['Verdict'];
