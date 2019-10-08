@@ -73,7 +73,9 @@
 			  <p>Email: <?php echo $email; ?></p>
 			  <p>Total Solve: <?php echo $solve; ?></p> 
 			  <p>Rank: <?php echo $rank; ?></p>
-			  <button> UPDATE </button>
+			  <form action="profile_update.php">
+					<input type="submit" value="Update" />
+			  </form>
 			</div>
 		  </div>
 		</div>	

@@ -37,7 +37,7 @@
                 <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea id="code" name="fcode" class="form-control" placeholder="Write Your Code Here..." rows="16" required="required" ></textarea>
+                                <textarea id="code" name="code" class="form-control" placeholder="Write Your Code Here..." rows="16" required="required" ></textarea>
                             </div>
                         </div>
                 </div>

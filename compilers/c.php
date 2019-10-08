@@ -14,7 +14,7 @@
 	$filename_in="input.txt";
 	$filename_error="error.txt";
 	$executable="a.exe";
-	$command=$CC." -lm ".$filename_code;	
+	$command=$CC." -lm ".$filename_code;
 	$command_error=$command." 2>".$filename_error;
 
 
@@ -22,16 +22,24 @@
 	//if(trim($code)=="")
 	//die("The code area is empty");
 	
+	exec("PATH=C:\Program Files (x86)\CodeBlocks\MinGW\bin");
+	
 	$file_code=fopen($filename_code,"w+");
 	fwrite($file_code,$code);
 	fclose($file_code);
 	$file_in=fopen($filename_in,"w+");
 	fwrite($file_in,$input);
 	fclose($file_in);
+	
+	/*echo $command_error;
+	$value = exec($command_error);
+	print_r($value);
+	
 	exec("cacls  $executable /g everyone:f"); 
-	exec("cacls  $filename_error /g everyone:f");	
+	exec("cacls  $filename_error /g everyone:f");	*/
 
-	shell_exec($command_error);
+	//shell_exec($command_error);
+	print_r(shell_exec($command_error));
 	$error=file_get_contents($filename_error);
 
 	if(trim($error)=="")
@@ -52,13 +60,19 @@
 		//echo trim(preg_replace('/\s+/', ' ', trim($output)));
 		
 		//if(trim(preg_replace('/\s+/', ' ', trim($output))) == $test_case_output){
-		if($output == $test_case_output)
-		echo "Accepted"; 
+			$test_case_output = trim($test_case_output);
+			//echo "<br>";
+		//if($output == $test_case_output)
+		if(strcmp($output, $test_case_output) == 0)
+		{
+			echo "Accepted"; 
+		}
 		else{
-			echo "Wrong Answer";}
+			echo "Wrong Answer";
+		}
 	}
     else
-        echo "Wrong Answer";
+        echo "Compilation Error";
 
 	exec("del $filename_code");
 	exec("del *.o");

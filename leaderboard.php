@@ -68,7 +68,7 @@
                     ?>
 						<tr>
 							<td><a href="profile.php?user=<?php echo $user; ?>"><?php echo $user; ?></a></td>
-							<td><a href="profile.php?user=<?php echo $user; ?>"><?php echo $solve; ?></a></td>
+							<td><?php echo $solve; ?></td>
 						</tr>
 				<?php
 					}
