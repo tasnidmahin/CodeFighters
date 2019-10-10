@@ -40,7 +40,7 @@
 		{
 			$id = $row['UserID'];
 		}
-		$sql = "SELECT FirstName,LastName,Email,(SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS where UserID = '$id' and Verdict = 'Accepted') as solve from USERS";
+		$sql = "SELECT FirstName,LastName,Email,solve from USERS";
 		$result = mysqli_query( $conn, $sql );
 		
 		while( $row = mysqli_fetch_assoc($result) ) 
@@ -51,7 +51,7 @@
 			$solve = $row['solve'];
 		}
 		
-		$sql = "(SELECT COUNT(DISTINCT UserID)  as rank from SUBMISSIONS where (SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS where UserID = '$id' and Verdict = 'Accepted')> '$solve')";
+		$sql = "(SELECT COUNT(UserID)  as rank from USERS where solve> '$solve')";
 		$result = mysqli_query( $conn, $sql );
 		
 		while( $row = mysqli_fetch_assoc($result) ) 

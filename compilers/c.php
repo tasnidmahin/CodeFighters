@@ -1,6 +1,7 @@
 <?php
     error_reporting(0);
     include("loginChecking.php");
+	include('db_connection.php');
 
     //session_start();
 	
@@ -61,11 +62,32 @@
 		
 		//if(trim(preg_replace('/\s+/', ' ', trim($output))) == $test_case_output){
 			$test_case_output = trim($test_case_output);
-			//echo "<br>";
+			
 		//if($output == $test_case_output)
 		if(strcmp($output, $test_case_output) == 0)
 		{
 			$_SESSION['verdict'] = "Accepted";
+			
+			$username = $_SESSION['loggedInUser'];
+			
+			$sql = "SELECT UserID from USERS where Username = '$username'";
+			$result = mysqli_query( $conn, $sql );
+			while( $row = mysqli_fetch_assoc($result) ) 
+			{
+				$id = $row['UserID'];
+			}
+			
+			
+			$sql = "SELECT solve from USERS where UserID ='$id'";
+			$result = mysqli_query( $conn, $sql );
+			while( $row = mysqli_fetch_assoc($result) ) 
+			{
+				$s = $row['solve'];
+			}
+			$s++;
+			
+			$sql = "UPDATE USERS SET solve = '$s' where UserID = '$id'";
+			$result = mysqli_query( $conn, $sql );
 			echo "Accepted"; 
 		}
 		else{

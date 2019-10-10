@@ -26,14 +26,14 @@
 				
 				$sql = "INSERT INTO SUBMISSIONS  (ProblemID , UserID , Verdict , Language)
 						VALUES ('$problem', '$id','$verdict', '$languageID')";
-			if( mysqli_query( $conn, $sql ) )
-			{
-				
-			}
-			else
-			{
-				echo "Error: ". $sql . "<br>" . mysqli_error($conn);
-			}
+				if( mysqli_query( $conn, $sql ) )
+				{
+					
+				}
+				else
+				{
+					echo "Error: ". $sql . "<br>" . mysqli_error($conn);
+				}
 				$_SESSION['problem'] = "";	$_SESSION['verdict']="";
 				break;
 			}

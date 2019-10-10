@@ -40,14 +40,6 @@
 		$user = $solve = $id = "";
 		$username = $_SESSION['loggedInUser'];
 		
-		$sql = "SELECT UserID from USERS where Username = '$username'";
-		$result = mysqli_query( $conn, $sql );
-		while( $row = mysqli_fetch_assoc($result) ) 
-		{
-			$id = $row['UserID'];
-		}
-		$sql = "SELECT Username ,(SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS  where UserID = '$id' and Verdict = 'Accepted') as solve from USERS ORDER BY solve DESC";
-		$result = mysqli_query( $conn, $sql );
 		
 	?>
 
@@ -63,17 +55,22 @@
 			
             <tbody>
 				<?php
-					while( $row = mysqli_fetch_assoc($result) ) 
-					{
-						$user     = $row['Username'];
-						$solve = $row['solve'];
+					
+						$sql2 = "SELECT Username ,solve from USERS ORDER BY solve DESC";
+						$result2 = mysqli_query( $conn, $sql2 );
+							
+							while( $row2 = mysqli_fetch_assoc($result2) ) 
+							{
+								$user     = $row2['Username'];
+								$solve = $row2['solve'];
+								
                     ?>
 						<tr>
 							<td><a href="profile.php?user=<?php echo $user; ?>"><?php echo $user; ?></a></td>
 							<td><?php echo $solve; ?></td>
 						</tr>
 				<?php
-					}
+						}
                     ?>
 				
 

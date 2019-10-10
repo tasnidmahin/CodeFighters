@@ -42,7 +42,6 @@
 			if(!empty($_POST["firstname"]))
 			{
 				$firstname = test_input($_POST["firstname"]);
-				echo "mahin" . $firstname . "mahin";
 				if(empty($firstname))
 				{
 					$firstname_error = "Your firstname can't be just space";
@@ -75,6 +74,24 @@
 				{
 					$username_error = "Only letters,digits and underscore are allowed";
 				}
+				else
+				{
+					$v = 0;
+					$sql = "SELECT Username from USERS";
+					$result = mysqli_query( $conn, $sql );
+					while( $row = mysqli_fetch_assoc($result) )
+					{
+						if($username == $row['Username'])
+						{
+							$v=1;
+							break;
+						}
+					}							
+					if($v)
+					{
+						$username_error = "This username allready has been used";
+					}
+				}
 			}
 			
 			if(!empty($_POST["email"]))
@@ -92,24 +109,31 @@
 				$password = password_hash (test_input( $_POST["password"] ), PASSWORD_DEFAULT);
 			}
 			
-			$sql = "INSERT INTO USERS (Username, Password, FirstName, LastName, email)
-			VALUES ('$username', '$password','$firstname', '$lastname' ,'$email')";
 			
 			
-			if( mysqli_query( $conn, $sql ) )
+			
+			if($firstname_error == "" && $lastname_error == "" && $username_error == "" && $email_error == "")
 			{
-			   session_start();
+				$sql = "INSERT INTO USERS (Username, Password, FirstName, LastName, email)
+				VALUES ('$username', '$password','$firstname', '$lastname' ,'$email')";
 				
-				// store data in SESSION variables
-				$_SESSION['loggedInUser'] = $user;
-				$_SESSION['loggedInEmail'] = $email;
 				
-				header("Location: home.php");
+				if( mysqli_query( $conn, $sql ) )
+				{
+				   session_start();
+					
+					// store data in SESSION variables
+					$_SESSION['loggedInUser'] = $user;
+					$_SESSION['loggedInEmail'] = $email;
+					
+					header("Location: home.php");
+				}
+				else
+				{
+					//echo "Error: ". $sql . "<br>" . mysqli_error($conn);
+				}
 			}
-			else
-			{
-				echo "Error: ". $sql . "<br>" . mysqli_error($conn);
-			}
+			
 			
 		}	
 
@@ -132,19 +156,19 @@
 		
 			<br><br>
 			First Name:<span style="color:red;"> * </span><br>
-			<input type="text"	name="firstname"	required><br>		<!-- Text -->
+			<input type="text"	name="firstname"  value="<?php echo isset($_POST["firstname"]) ? $_POST["firstname"] : ''; ?>"	placeholder="Enter Your First Name"   required><br>		<!-- Text -->
 			<?php  if($firstname_error != "")echo "<br> $firstname_error <br>"  ?><br>
 			Last Name:<span style="color:red;"> * </span><br>
-			<input type="text"	name="lastname"		required> <br>
+			<input type="text"	name="lastname"	  value="<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ''; ?>"  placeholder="Enter Your Last Name"  required> <br>
 			<?php  if($lastname_error != "")echo "<br> $lastname_error <br>"  ?><br>			
 			Username:<span style="color:red;"> * </span><br>
-			<input type="text"	name="username"		required><br>			
+			<input type="text"	name="username"	 value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"   placeholder="Enter Your username"	required><br>			
 			<?php  if($username_error != "")echo "<br> $username_error <br>"  ?><br>
 			Email:<span style="color:red;"> * </span><br>
-			<input type="text"	name="email"		required><br>			
+			<input type="text"	name="email"	value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"  placeholder="Enter Your Email"	required><br>			
 			<?php  if($email_error != "")echo "<br> $email_error <br>"  ?><br>			
 			Password:<span style="color:red;"> * </span><br>
-			<input type="password"	name="password"	required><br><br>
+			<input type="password"	name="password"	 value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>"  placeholder="Enter Your Password"  required><br><br>
 			<br>
 			<input type="submit"	value="Register"><br><br>		<!-- Submit -->
 		
