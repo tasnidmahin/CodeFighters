@@ -32,7 +32,8 @@
 		include("navbar.php");
 		include('db_connection.php');
 		$firstName = $lastName = $solve = $rank = $email = $id = "";
-		$username = $_SESSION['loggedInUser'];
+		$username = $_GET['user'];
+		
 		
 		$sql = "SELECT UserID from USERS where Username = '$username'";
 		$result = mysqli_query( $conn, $sql );
@@ -40,7 +41,9 @@
 		{
 			$id = $row['UserID'];
 		}
-		$sql = "SELECT FirstName,LastName,Email,solve from USERS";
+		
+		
+		$sql = "SELECT FirstName,LastName,Email,solve from USERS where Username = '$username'";
 		$result = mysqli_query( $conn, $sql );
 		
 		while( $row = mysqli_fetch_assoc($result) ) 
@@ -68,7 +71,7 @@
 			  <img src="gifs/no-photo.jpg" alt="No Photo" style="width:300px;height:300px;">
 			</div>
 			<div class="flip-card-back">
-			  <h1><?php echo $_SESSION['loggedInUser']; ?></h1> 
+			  <h1><?php echo $_GET['user']; ?></h1> 
 			  <p> Name: <?php echo $firstName . "  " . $lastName; ?></p> 
 			  <p>Email: <?php echo $email; ?></p>
 			  <p>Total Solve: <?php echo $solve; ?></p> 

@@ -9,8 +9,8 @@
 	  
 		<li href="#demo" data-toggle="collapse"  style="float:right" > <a  href="#about">  <?php echo $user;   ?>  </a> 
 			<div id="demo" class="collapse">
-				<a href="profile.php?username=<?php echo $_SESSION['loggedInUser'];  ?>">Profile</a>
-				<a href="my_submissions.php?username=<?php echo $_SESSION['loggedInUser']; ?>">Submissions</a>
+				<a href="profile.php?user=<?php echo $_SESSION['loggedInUser'];  ?>">Profile</a>
+				<a href="my_submissions.php?user=<?php echo $_SESSION['loggedInUser']; ?>">Submissions</a>
 				<a href="logout.php">Logout</a>
 
 			</div>

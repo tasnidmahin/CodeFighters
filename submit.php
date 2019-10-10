@@ -30,6 +30,9 @@
 	<?php
 		include("navbar.php");	
 		session_start();
+		$problem = $_GET['problem'];
+		$_SESSION['problem'] = $problem;
+		session_start();
 	?>
            <div class="row" style="margin: 100px;margin-left: 300px ">
                      <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded col-md-8">

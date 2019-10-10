@@ -44,7 +44,10 @@
 
 			}
 		?>
-	
+		
+		<div class="link" style="margin-bottom: 70px;">
+			<a id="sub" href="submit.php?problem=<?php echo $problem_no ?>" > Submit </a>
+		</div>
 	
 		
 	<script src="js/jquery.min.js"></script>

@@ -24,6 +24,9 @@
 
 	<?php
 	
+		$successfull = 0;
+		$success = "";
+	
 		function test_input($data) 	// to test Form data
 		{
 			  $data = trim( stripslashes( htmlspecialchars( $data ) ) );
@@ -123,10 +126,11 @@
 				   session_start();
 					
 					// store data in SESSION variables
-					$_SESSION['loggedInUser'] = $user;
+					$_SESSION['loggedInUser'] = $username;
 					$_SESSION['loggedInEmail'] = $email;
 					
-					header("Location: home.php");
+					$successfull = 1;
+					$success = "<div class='alert alert-success'> You have successfully created your account. <a class='close' data-dismiss='alert'>&times;</a></div>";
 				}
 				else
 				{
@@ -156,24 +160,31 @@
 		
 			<br><br>
 			First Name:<span style="color:red;"> * </span><br>
-			<input type="text"	name="firstname"  value="<?php echo isset($_POST["firstname"]) ? $_POST["firstname"] : ''; ?>"	placeholder="Enter Your First Name"   required><br>		<!-- Text -->
+			<input type="text"	name="firstname"  value="<?php echo isset($_POST["firstname"]) ? $_POST["firstname"] : ''; ?>"	   required><br>		<!-- Text -->
 			<?php  if($firstname_error != "")echo "<br> $firstname_error <br>"  ?><br>
 			Last Name:<span style="color:red;"> * </span><br>
-			<input type="text"	name="lastname"	  value="<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ''; ?>"  placeholder="Enter Your Last Name"  required> <br>
+			<input type="text"	name="lastname"	  value="<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ''; ?>"   required> <br>
 			<?php  if($lastname_error != "")echo "<br> $lastname_error <br>"  ?><br>			
 			Username:<span style="color:red;"> * </span><br>
-			<input type="text"	name="username"	 value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"   placeholder="Enter Your username"	required><br>			
+			<input type="text"	name="username"	 value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"   	required><br>			
 			<?php  if($username_error != "")echo "<br> $username_error <br>"  ?><br>
 			Email:<span style="color:red;"> * </span><br>
-			<input type="text"	name="email"	value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"  placeholder="Enter Your Email"	required><br>			
+			<input type="text"	name="email"	value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"  	required><br>			
 			<?php  if($email_error != "")echo "<br> $email_error <br>"  ?><br>			
 			Password:<span style="color:red;"> * </span><br>
-			<input type="password"	name="password"	 value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>"  placeholder="Enter Your Password"  required><br><br>
+			<input type="password"	name="password"	 value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>"   required><br><br>
 			<br>
 			<input type="submit"	value="Register"><br><br>		<!-- Submit -->
 		
 		</fieldset>
 	
+			<br>Already have an account? <a href = "index.php" > Login </a>
+			
+		<div>
+			<?php 
+				if($successfull == 1){ echo $success;}
+			?>
+		</div>
 	
 	</form>
 	
