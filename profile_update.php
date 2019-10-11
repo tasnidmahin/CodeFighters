@@ -144,16 +144,16 @@
 			<legend>  Update Your Profile </legend>
 			
 				<br><br>
-				First Name:
+				First Name: <pre></pre>
 				<input type="text"	name="firstname"	><br>		<!-- Text -->
 				<?php  if($firstname_error != "")echo "<br> $firstname_error <br>"  ?><br>
-				Last Name:
+				Last Name: <pre></pre>
 				<input type="text"	name="lastname"		> <br>
 				<?php  if($lastname_error != "")echo "<br> $lastname_error <br>"  ?><br>			
-				Email:   
+				Email:   <pre></pre>
 				<input type="text"	name="email"		><br>			
 				<?php  if($email_error != "")echo "<br> $email_error <br>"  ?><br>			
-				Password:
+				Password: <pre></pre>
 				<input type="password"	name="password"	><br><br>
 				<br>
 				<input type="submit"	value="Update"><br><br>		<!-- Submit -->

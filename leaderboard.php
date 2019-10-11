@@ -48,6 +48,7 @@
         <table id="table_id" >
             <thead>
                 <tr>
+                    <th>Ranklist</th>
                     <th>Username</th>
                     <th>Solved</th>
                 </tr>
@@ -63,9 +64,18 @@
 							{
 								$user     = $row2['Username'];
 								$solve = $row2['solve'];
+								$sql = "(SELECT COUNT(UserID)  as rank from USERS where solve> '$solve')";
+								$result = mysqli_query( $conn, $sql );
+								
+								while( $row = mysqli_fetch_assoc($result) ) 
+								{
+									$rank = $row['rank'];
+								}
+								$rank++;
 								
                     ?>
 						<tr>
+							<td><?php echo $rank; ?></td>
 							<td><a href="profile.php?user=<?php echo $user; ?>"><?php echo $user; ?></a></td>
 							<td><?php echo $solve; ?></td>
 						</tr>

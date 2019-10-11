@@ -35,32 +35,121 @@
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>
-					<th>Category</th>
-					<th style="padding: 0px 30px;">List</th> 
+					<th style="padding: 5px 35px;">Category</th>
 				  </tr>
 					  <tr>
 						<td>Beginner Problems</td>
-						<td><a href="problem_volume.php?volume=<?php echo $i; ?>"><?php echo $i; ?></a></td>
-					  </tr>
+						
+						<?php
+							$sql = "SELECT ProblemID  from PROBLEM_CATEGORY where Tag = 'Beginner Problems'";
+							$result = mysqli_query( $conn, $sql );
+							while( $row = mysqli_fetch_assoc($result) ) 
+							{
+								$id = $row['ProblemID'];
+						?>	
+								
+						</tr>		
+						<tr>		
+							<td><a href="problem.php?problem=<?php echo $id; ?>"><?php echo $id; ?></a></td>
+						</tr>
+						
+						<?php		
+							}
+						?>
 				  <tr>
 					<td>Searching</td>
-					<td><a href="problem_volume.php?volume=101">101</a></td>
+						<?php
+							$sql = "SELECT ProblemID  from PROBLEM_CATEGORY where Tag = 'Searching'";
+							$result = mysqli_query( $conn, $sql );
+							while( $row = mysqli_fetch_assoc($result) ) 
+							{
+								$id = $row['ProblemID'];
+						?>	
+								
+						</tr>		
+						<tr>		
+							<td><a href="problem.php?problem=<?php echo $id; ?>"><?php echo $id; ?></a></td>
+						</tr>
+						
+						<?php		
+							}
+						?>
 				  </tr>
 				  <tr>
 					<td>Data Structures</td>
-					<td><a href="problem_volume.php?volume=102">102</a></td>
+						<?php
+							$sql = "SELECT ProblemID  from PROBLEM_CATEGORY where Tag = 'Data Structures'";
+							$result = mysqli_query( $conn, $sql );
+							while( $row = mysqli_fetch_assoc($result) ) 
+							{
+								$id = $row['ProblemID'];
+						?>	
+								
+						</tr>		
+						<tr>		
+							<td><a href="problem.php?problem=<?php echo $id; ?>"><?php echo $id; ?></a></td>
+						</tr>
+						
+						<?php		
+							}
+						?>
 				  </tr>
 				  <tr>
 					<td>Graph Theory</td>
-					<td><a href="problem_volume.php?volume=103">103</a></td>
+						<?php
+							$sql = "SELECT ProblemID  from PROBLEM_CATEGORY where Tag = 'Graph Theory'";
+							$result = mysqli_query( $conn, $sql );
+							while( $row = mysqli_fetch_assoc($result) ) 
+							{
+								$id = $row['ProblemID'];
+						?>	
+								
+						</tr>		
+						<tr>		
+							<td><a href="problem.php?problem=<?php echo $id; ?>"><?php echo $id; ?></a></td>
+						</tr>
+						
+						<?php		
+							}
+						?>
 				  </tr>
 				  <tr>
 					<td>Math</td>
-					<td><a href="problem_volume.php?volume=103">103</a></td>
+						<?php
+							$sql = "SELECT ProblemID  from PROBLEM_CATEGORY where Tag = 'Math'";
+							$result = mysqli_query( $conn, $sql );
+							while( $row = mysqli_fetch_assoc($result) ) 
+							{
+								$id = $row['ProblemID'];
+						?>	
+								
+						</tr>		
+						<tr>		
+							<td><a href="problem.php?problem=<?php echo $id; ?>"><?php echo $id; ?></a></td>
+						</tr>
+						
+						<?php		
+							}
+						?>
 				  </tr>
 				  <tr>
 					<td>String</td>
-					<td><a href="problem_volume.php?volume=103">103</a></td>
+						<?php
+							$sql = "SELECT ProblemID  from PROBLEM_CATEGORY where Tag = 'String'";
+							$result = mysqli_query( $conn, $sql );
+							while( $row = mysqli_fetch_assoc($result) ) 
+							{
+								$id = $row['ProblemID'];
+						?>	
+								
+						</tr>		
+						<tr>		
+							<td><a href="problem.php?problem=<?php echo $id; ?>"><?php echo $id; ?></a></td>
+						</tr>
+						
+						<?php		
+							}
+						?>
 				  </tr>
 			</table>
 		</div>
