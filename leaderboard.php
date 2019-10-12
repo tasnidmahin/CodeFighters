@@ -26,7 +26,8 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 	<link rel = "stylesheet" href="css/nav_css.css">				<!-- External css file -->
-	<link rel = "stylesheet" href="css/home_css.css">				
+	<link rel = "stylesheet" href="css/home_css.css">		
+
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
@@ -48,7 +49,7 @@
         <table id="table_id" >
             <thead>
                 <tr>
-                    <th>Ranklist</th>
+                    <th>Rank</th>
                     <th>Username</th>
                     <th>Solved</th>
                 </tr>

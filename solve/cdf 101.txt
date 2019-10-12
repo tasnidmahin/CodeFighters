@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+
+int main()
+{
+    /*freopen("in.txt","r",stdin);
+    freopen("out.txt","w",stdout);*/
+    int test;
+    scanf("%d",&test);
+    for(int i=1;i<=test;i++)
+    {
+        int a,b;
+        scanf("%d %d",&a,&b);
+        a+=b;
+        printf("%d\n",a);
+    }
+    return 0;
+}
+

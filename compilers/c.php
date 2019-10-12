@@ -69,7 +69,7 @@
 	exec("cacls  $executable /g everyone:f"); 
 	exec("cacls  $filename_error /g everyone:f");	*/
 
-	//shell_exec($command_error);
+	//shell_exec($command_error);	
 	print_r(shell_exec($command_error));
 	$error=file_get_contents($filename_error);
 
@@ -86,12 +86,78 @@
 		}
 		
 		//echo preg_replace("/\r\n|\r|\n/", ' ', $output);
-		//echo $output;
+		//echo $output; echo "<br>";
 		//echo $test_case_output;
 		//echo trim(preg_replace('/\s+/', ' ', trim($output)));
 		
 		//if(trim(preg_replace('/\s+/', ' ', trim($output))) == $test_case_output){
-			$test_case_output = trim($test_case_output);
+			
+			//$test_case_output = trim($test_case_output);
+			
+		//echo "<br>";	
+		//echo $test_case_output;
+		
+		/*$amar_out="amar.txt";
+		$data="data.txt";
+		
+		$file = fopen($amar_out,"w+");
+		fwrite($file,$output);
+		fclose($file);
+		$file = fopen($data,"w+");
+		fwrite($file,$test_case_output);
+		fclose($file);*/
+		
+		$test_case_output = str_replace(chr(13), "", $test_case_output);
+		
+		
+		
+		/*$array = str_split($output);
+		echo count($array);
+		foreach ($array as $char) {
+		 echo ord($char);
+		 echo " ";
+		}
+		echo "<br>";	
+		$array = str_split($test_case_output);
+		echo count($array);
+		foreach ($array as $char) {
+		 echo ord($char);
+		 echo " ";
+		}*/
+		
+		
+		/*$len1 = count($array);
+		$len2 = count($array2);
+
+		$similarity = $i = $j = $dissimilarity = 0;
+
+		while (($i < $len1) && ($j < $len2)) {
+			//echo 5;
+			if ($array[$i] == $array2[$j]) {
+				$similarity++;
+				$matchingcharacters[] = '['.$array[$i].']';
+			} else {
+				$dissimilarity++;
+				$mismatchingcharacters[] = '['.$array[$i] . " & " . $array2[$j].']';
+				echo ord($array[$i]);
+				echo "<br>";
+				echo ord($array2[$j]);
+				echo "<br>";
+				echo "shesh";
+				echo "<br>";
+			}
+			$i++;
+			$j++;
+		}		
+		
+				echo $similarity;
+				echo "<br>";
+				echo $dissimilarity;*/
+		
+		
+		
+		
+
 			
 		//if($output == $test_case_output)
 		if(strcmp($output, $test_case_output) == 0)

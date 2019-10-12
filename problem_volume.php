@@ -47,7 +47,7 @@
 					<th>Total Problems</th>
 				  </tr>
 				  <?php 
-					for ($i = 100; $i <= 103; $i++) {
+					for ($i = 100; $i <= 400; $i+=100) {
 						$u = $i+100;
 						$sql = "SELECT (SELECT COUNT(DISTINCT ProblemID) from SUBMISSIONS where ProblemID>='$i' and ProblemID<'$u' and Verdict = 'Accepted') as solve ,COUNT(DISTINCT ProblemID) as problem from PROBLEMS  where Volume = '$i'";
 						$result = mysqli_query( $conn, $sql );
@@ -108,7 +108,7 @@
 	
 	<?php } ?>
 	
-	<?php if($volume_no == 101) { ?>
+	<?php if($volume_no == 200) { ?>
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>
@@ -121,7 +121,7 @@
 	
 	<?php } ?>
 	
-	<?php if($volume_no == 102) { ?>
+	<?php if($volume_no == 300) { ?>
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>
@@ -134,7 +134,7 @@
 	
 	<?php } ?>
 	
-	<?php if($volume_no == 103) { ?>
+	<?php if($volume_no == 400) { ?>
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>

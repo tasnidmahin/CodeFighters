@@ -21,7 +21,8 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">  <!-- Bootstrap -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel = "stylesheet" href="css/nav_css.css">				<!-- External css file -->
-	<link rel = "stylesheet" href="css/profile_css.css">				
+	<link rel = "stylesheet" href="css/profile_css.css">	
+
 	
 </head>
 

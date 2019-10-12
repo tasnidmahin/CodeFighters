@@ -49,6 +49,9 @@
 
 	//if(trim($code)=="")
 	//die("The code area is empty");
+
+	/*	$start = microtime(true);
+		$time_elapsed_secs = microtime(true) - $start;*/
 	
 	exec("PATH=C:\Program Files (x86)\CodeBlocks\MinGW\bin");
 	
@@ -80,7 +83,7 @@
 		//echo "$output";
               //echo "<textarea id='div' class=\"form-control\" name=\"output\" rows=\"10\" cols=\"50\">$output</textarea><br><br>";
 			  
-		$test_case_output = trim($test_case_output);
+		//$test_case_output = trim($test_case_output);
 	/*}
 	else if(!strpos($error,"error"))
 	{
@@ -101,6 +104,8 @@
 	{
 		echo "<pre>$error</pre>";
 	}*/
+	
+	$test_case_output = str_replace(chr(13), "", $test_case_output);
 	
 		if(strcmp($output, $test_case_output) == 0)
 		{
