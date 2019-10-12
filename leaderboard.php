@@ -32,7 +32,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
 
-<body style="background-image: url(gifs/blue_sky.jpg)">
+<body style="background-image: url(gifs/battle.jpg)">
 
 	<?php
 		include("navbar.php");

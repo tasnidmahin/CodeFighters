@@ -25,7 +25,7 @@
 </head>
 
 
-<body style="background-image: url(gifs/page.jpg)">
+<body style="background-image: url(gifs/library.jpg)">
 
 	<?php
 		include("navbar.php");
@@ -79,7 +79,7 @@
 		
 	?>
 		<div class="vol_tab">
-			<table align="center">
+			<table align="center" class="table-dark">
 				  <tr>
 					<th>Problem ID</th>
 					<th>Problem Name</th> 
@@ -116,7 +116,7 @@
 		
 	?>
 		<div class="vol_tab">
-			<table align="center">
+			<table align="center" class="table-dark">
 				  <tr>
 					<th>Problem ID</th>
 					<th>Problem Name</th> 
@@ -153,7 +153,7 @@
 		
 	?>
 		<div class="vol_tab">
-			<table align="center">
+			<table align="center" class="table-dark">
 				  <tr>
 					<th>Problem ID</th>
 					<th>Problem Name</th> 
@@ -190,7 +190,7 @@
 		
 	?>
 		<div class="vol_tab">
-			<table align="center">
+			<table align="center" class="table-dark">
 				  <tr>
 					<th>Problem ID</th>
 					<th>Problem Name</th> 

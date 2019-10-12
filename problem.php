@@ -26,7 +26,7 @@
 </head>
 
 
-<body>
+<body style="background-image: url(gifs/white.jpg)">
 		<?php
 			include("navbar.php");
 			include('db_connection.php');
