@@ -27,7 +27,7 @@
 </head>
 
 
-<body>
+<body style="background-image: url(gifs/boat.jpg)">
 
 	<?php
 		include("navbar.php");

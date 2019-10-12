@@ -25,7 +25,7 @@
 </head>
 
 
-<body>
+<body style="background-image: url(gifs/page.jpg)">
 
 	<?php
 		include("navbar.php");
@@ -40,7 +40,7 @@
 	
 	?>
 		<div class="vol_tab">
-			<table align="center">
+			<table align="center" class="table-dark">
 				  <tr>
 					<th>Volume</th>
 					<th>Solved Problems</th> 

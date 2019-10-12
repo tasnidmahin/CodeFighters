@@ -31,27 +31,27 @@
 		include("navbar.php");
 	?>
 	
-	<div class="wht">		
+	<div class="wht" style="background-image: url(gifs/code1.jpg)">		
 		<p> Welcome to the world of coding !! </p>		
 	</div>
 	
-	<div class="gry">		
+	<div class="gry" style="background-image: url(gifs/code2.jpg)">		
 		<p> Practice with quality problems </p>		
 	</div>
 	
-	<div class="wht">		
-		<p> Improve your skill </p>		
+	<div class="wht" style="background-image: url(gifs/code3.jpg)">		
+		<p style="color: rgb(56,190,89);"> Improve your skill </p>		
 	</div>
 	
-	<div class="gry">		
+	<div class="gry" style="background-image: url(gifs/code4.jpg)">		
 		<p> Find problems of your desired category </p>		
 	</div>
 	
-	<div class="wht">		
+	<div class="wht" style="background-image: url(gifs/code5.jpg)">		
 		<p> Compete with the world </p>		
 	</div>
 	
-	<div class="gry">		
+	<div class="gry" style="background-image: url(gifs/code6.jpg)">		
 		<p> Enjoy.Happy coding !!! </p>		
 	</div>
 	

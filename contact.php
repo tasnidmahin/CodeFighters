@@ -26,7 +26,7 @@
 </head>
 
 
-<body >
+<body style="background-image: url(gifs/milkyway.jpg)">
 
 	<?php
 		include("navbar.php");

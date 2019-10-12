@@ -25,7 +25,7 @@
 </head>
 
 
-<body>
+<body style="background-image: url(gifs/book_mug.jpg)">
 
 	<?php
 		include("navbar.php");
@@ -33,7 +33,7 @@
 	?>
 	
 		<div class="vol_tab">
-			<table align="center">
+			<table align="center" class="table-dark">
 				  <tr>
 					<th style="padding: 5px 35px;">Category</th>
 				  </tr>

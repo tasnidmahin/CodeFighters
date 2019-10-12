@@ -33,7 +33,7 @@
 </head>
 
 
-<body>
+<body style="background-image: url(gifs/sub.jpg)">
 
 	<?php
 		include("navbar.php");

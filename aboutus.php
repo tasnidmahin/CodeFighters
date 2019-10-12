@@ -25,7 +25,7 @@
 </head>
 
 
-<body>
+<body style="background-image: url(gifs/work.jpg)">
 
 	<?php
 		include("navbar.php");
@@ -34,7 +34,7 @@
 
 	<div class="container-fluid bg-1 text-center">
 	  <h3 class="margin">Who I Am?</h3>
-	  <img src="gifs/me.jpg" class="img-responsive rounded-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+	  <img src="gifs/no-photo.jpg" class="img-responsive rounded-circle margin" style="display:inline" alt="No photo" width="350" height="350">
 	  <h3>I'm Tasnid Mahin student of AUST CSE. </h3>
 	</div>
 
