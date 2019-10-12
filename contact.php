@@ -30,6 +30,7 @@
 
 	<?php
 		include("navbar.php");
+		$successfull = 0;
 		function test_input($data) 	// to test Form data
 		{
 			  $data = trim( stripslashes( htmlspecialchars( $data ) ) );
@@ -44,7 +45,7 @@
 		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
-			$name = test_input($_POST["userName"]);
+			$name = $_SESSION['loggedInUser'];
 			$msg = test_input($_POST["userMessage"]);
 			
 			if(!$error)
@@ -52,7 +53,11 @@
 				$sql = "INSERT INTO FEEDBACK (username, Description)
 				VALUES ('$name', '$msg')";
 				
-				mysqli_query( $conn, $sql ) ;
+				if(mysqli_query( $conn, $sql ) )
+				{
+					$successfull = 1;
+					$success = "<div class='alert alert-success'> Thanks for your valuable feedback. <a class='close' data-dismiss='alert'>&times;</a></div>";
+				}
 			}
 			
 		}
@@ -72,18 +77,18 @@
                     <h3 class="text-center">Send Us A Message</h3>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin-top: 40px;">
                         <div class="form-group form-border">
-                            <label class="text-left" for="exampleInputPassword1"> Enter Your User Name</label>
+                           <!-- <label class="text-left" for="exampleInputPassword1"> Enter Your User Name</label>
                             <input type="text" name="userName" class="form-control input-blank-border" id="exampleInputPassword1" placeholder="Enter your User Name" required>
 							<br>
-							<?php if ($name != $_SESSION['loggedInUser']) {
+							<?php /*if ($name != $_SESSION['loggedInUser']) {
 								$error = 1;
                                 echo "Write your user name";
 								
-                            } ?>
+                            } */?> -->
 						</div>
                         <div class="form-group form-border">
                             <label class="text-left" for="exampleInputPassword1">Message</label>
-                            <textarea class="form-control input-blank-border" name="userMessage" id="exampleFormControlTextarea1" placeholder="Write your Message" rows="3" required></textarea>
+                            <textarea class="form-control input-blank-border" name="userMessage" id="exampleFormControlTextarea1" placeholder="Write your Message" rows="15" required></textarea>
                         </div>
                         <div class="form-group d-flex justify-content-center">
                             <button type="submit" class="btn btn-dark w-25 text-center" style="margin-right: 10px;">Submit</button>
@@ -95,7 +100,11 @@
                         </div>
                     </form> 
 					
-					
+			<div>
+				<?php 
+					if($successfull == 1){ echo $success;}
+				?>
+			</div>
 
                 </div>
 

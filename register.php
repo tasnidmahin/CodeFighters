@@ -178,7 +178,7 @@
 		
 		</fieldset>
 	
-			<br>Already have an account? <a href = "index.php" > Login </a>
+			<br>Already have an account? <a href = "index.php" > Login </a> <br>
 			
 		<div>
 			<?php 
