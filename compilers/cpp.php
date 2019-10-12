@@ -138,6 +138,25 @@
 			$sql = "UPDATE USERS SET solve = '$s' where UserID = '$id'";
 			$result = mysqli_query( $conn, $sql );
 			//echo "Accepted"; 
+			
+			$sql = "SELECT ProblemID  from SUBMISSIONS where ProblemID = '$prob_id' and Verdict = 'Accepted' and UserID = '$id'";
+			$result = mysqli_query( $conn, $sql );
+			
+			if( mysqli_num_rows($result) == 0 )
+			{
+				$sql = "SELECT solved from PROBLEMS  where ProblemID  ='$prob_id'";
+				$result = mysqli_query( $conn, $sql );
+				while( $row = mysqli_fetch_assoc($result) ) 
+				{
+					$s = $row['solved'];
+				}
+				$s++;
+				$sql = "UPDATE PROBLEMS  SET solved = '$s' where ProblemID = '$prob_id'";
+				$result = mysqli_query( $conn, $sql );
+			}
+			
+			
+			
 			$v = 1;
 			$res = "<div class='alert alert-success'> Accepted <a class='close' data-dismiss='alert'>&times;</a></div>";
 		}

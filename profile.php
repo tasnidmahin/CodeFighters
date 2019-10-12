@@ -77,8 +77,8 @@
 			  <p>Email: <?php echo $email; ?></p>
 			  <p>Total Solve: <?php echo $solve; ?></p> 
 			  <p>Rank: <?php echo $rank; ?></p>
-			  <form action="profile_update.php">
-					<input type="submit" value="Update" />
+			  <form action="profile_update.php"  >
+					<input type="submit" value="Update" <?php if($_GET['user'] != $_SESSION['loggedInUser']) echo "disabled='disabled'"; ?>/>
 			  </form>
 			</div>
 		  </div>

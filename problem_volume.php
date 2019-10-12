@@ -108,7 +108,13 @@
 	
 	<?php } ?>
 	
-	<?php if($volume_no == 200) { ?>
+	<?php if($volume_no == 200) { 
+	//$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') as solve from PROBLEMS where Volume = 100";
+	$sql = "SELECT ProblemID,ProblemName,solved  from PROBLEMS where Volume = 200";
+	
+	$result = mysqli_query( $conn, $sql );
+		
+	?>
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>
@@ -116,12 +122,36 @@
 					<th>Problem Name</th> 
 					<th>Total Solve</th>
 				  </tr>
+			
+				<?php
+					while( $row = mysqli_fetch_assoc($result) ) 
+					{
+						$prob     = $row['ProblemID'];
+						$probName = $row['ProblemName'];
+						$solve = $row['solved'];
+                    ?>
+				<tr>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $prob; ?></a></td>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $probName; ?></a></td>
+					<td><?php echo $solve; ?></td>
+				</tr>
+				<?php
+					}
+                    ?>
+				
 			</table>
+
 		</div>
 	
 	<?php } ?>
 	
-	<?php if($volume_no == 300) { ?>
+	<?php if($volume_no == 300) { 
+	//$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') as solve from PROBLEMS where Volume = 100";
+	$sql = "SELECT ProblemID,ProblemName,solved  from PROBLEMS where Volume = 300";
+	
+	$result = mysqli_query( $conn, $sql );
+		
+	?>
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>
@@ -129,12 +159,36 @@
 					<th>Problem Name</th> 
 					<th>Total Solve</th>
 				  </tr>
+			
+				<?php
+					while( $row = mysqli_fetch_assoc($result) ) 
+					{
+						$prob     = $row['ProblemID'];
+						$probName = $row['ProblemName'];
+						$solve = $row['solved'];
+                    ?>
+				<tr>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $prob; ?></a></td>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $probName; ?></a></td>
+					<td><?php echo $solve; ?></td>
+				</tr>
+				<?php
+					}
+                    ?>
+				
 			</table>
+
 		</div>
 	
 	<?php } ?>
 	
-	<?php if($volume_no == 400) { ?>
+	<?php if($volume_no == 400) { 
+	//$sql = "SELECT ProblemID,ProblemName,(SELECT COUNT(DISTINCT userID) from SUBMISSIONS where ProblemID>=100 and ProblemID<200 and Verdict = 'Accepted') as solve from PROBLEMS where Volume = 100";
+	$sql = "SELECT ProblemID,ProblemName,solved  from PROBLEMS where Volume = 400";
+	
+	$result = mysqli_query( $conn, $sql );
+		
+	?>
 		<div class="vol_tab">
 			<table align="center">
 				  <tr>
@@ -142,7 +196,25 @@
 					<th>Problem Name</th> 
 					<th>Total Solve</th>
 				  </tr>
+			
+				<?php
+					while( $row = mysqli_fetch_assoc($result) ) 
+					{
+						$prob     = $row['ProblemID'];
+						$probName = $row['ProblemName'];
+						$solve = $row['solved'];
+                    ?>
+				<tr>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $prob; ?></a></td>
+					<td><a href="problem.php?problem=<?php echo $prob; ?>"><?php echo $probName; ?></a></td>
+					<td><?php echo $solve; ?></td>
+				</tr>
+				<?php
+					}
+                    ?>
+				
 			</table>
+
 		</div>
 	
 	<?php } ?>

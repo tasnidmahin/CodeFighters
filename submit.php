@@ -51,9 +51,9 @@
                     <option selected>c</option>
                     <option>cpp</option>
                     <option>cpp11</option>
-                    <option>java</option>
+                   <!--  <option>java</option>
                     <option>python2.7</option>
-                    <option>python3.2</option>
+                    <option>python3.2</option> -->
                   </select>
                 </div>
                 <div class="form-group col-md-6" >

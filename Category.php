@@ -38,7 +38,7 @@
 					<th style="padding: 5px 35px;">Category</th>
 				  </tr>
 					  <tr>
-						<td>Beginner Problems</td>
+						<td> Beginner Problems</td>
 						
 						<?php
 							$sql = "SELECT ProblemID  from PROBLEM_CATEGORY where Tag = 'Beginner Problems'";

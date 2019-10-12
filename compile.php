@@ -88,9 +88,26 @@
 			case "cpp11":
 			{
 				include("compilers/cpp11.php");
+				
+				$problem = $_SESSION['problem'];
+				$verdict = $_SESSION['verdict'];
+				
+				
+				
+				$sql = "INSERT INTO SUBMISSIONS  (ProblemID , UserID , Verdict , Language)
+						VALUES ('$problem', '$id','$verdict', '$languageID')";
+				if( mysqli_query( $conn, $sql ) )
+				{
+					
+				}
+				else
+				{
+					echo "Error: ". $sql . "<br>" . mysqli_error($conn);
+				}
+				$_SESSION['problem'] = "";	$_SESSION['verdict']="";
 				break;
 			}
-			case "java":
+			/*case "java":
 			{	
 				include("compilers/java.php");
 				break;
@@ -104,7 +121,7 @@
 			{
 				include("compilers/python32.php");
 				break;
-			}
+			}*/
 		}
 						
 ?>

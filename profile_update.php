@@ -123,7 +123,7 @@
 			
 			if($firstname_error == "" &&  $lastname_error == "" &&  $username_error == "" && $email_error == "")
 			{
-				header("Location: profile.php");
+				header("Location: profile.php?user=$username");
 			}
 			
 		}	
