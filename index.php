@@ -22,6 +22,11 @@
 <body>
 
 	<?php 
+		session_start();
+		if(!empty($_SESSION['loggedInUser']))
+		{
+			header("Location: home.php");
+		}
 		
 		function test_input($data) 	// to test Form data
 		{
@@ -71,7 +76,6 @@
 				
 				// successfully logged in
 				// start the session
-				session_start();
 				
 				// store data in SESSION variables
 				$_SESSION['loggedInUser'] = $user;

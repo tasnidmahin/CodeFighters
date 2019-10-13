@@ -23,6 +23,11 @@
 <body>
 
 	<?php
+		session_start();
+		if(!empty($_SESSION['loggedInUser']))
+		{
+			header("Location: home.php");
+		}
 	
 		$successfull = 0;
 		$success = "";
